@@ -12,14 +12,38 @@ fi
 
 
 wage_per_hour=20
-read -p "Enter your working hours either 8 or 4 " working_hours
-if [ $working_hours == 8 ]; then
+read -p "Enter 1 For Full time, 2 for Half time " total_working_hours
+case $total_working_hours in
+
+1 )
+working_hours=8
 total_wage=$(( wage_per_hour * working_hours ))
+echo " Working hours: $working_hours "
 echo " Total Wage is : $total_wage "
-elif [[ $working_hours -lt 8 && $working_hours -gt 3 ]]; then
+
+;;
+
+2 )
+working_hours=4
 total_wage=$(( wage_per_hour * working_hours ))
+echo " Working hours: $working_hours "
 echo " Total Wage is : $total_wage "
-else
-echo " Total Wage is Zero "
-fi
+
+;;
+
+* )
+working_hours=0
+total_wage=$(( wage_per_hour * working_hours ))
+echo " Working hours: $working_hours "
+echo " Total Wage is : $total_wage "
+
+;;
+
+esac
 	
+
+
+
+
+
+
